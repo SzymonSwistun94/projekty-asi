@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes</title>
+  <%= csrf_meta_tags %>
+
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Notes</a>
+    <ul class="right">
+      <li><%= link_to('List', '/main/list') %></li>
+      <% if user_signed_in? %>
+          <li><%= link_to('Create', '/note/create') %></li>
+          <% puts 'logged' %>
+          <li>Logged in as <strong><%= current_user.email %></strong></li>
+          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |</li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+      <% else %>
+          <% puts 'not logged' %>
+          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |</li>
+          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+      <% end %>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Navbar</a></li>
+
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+<%= yield %>
+
+<!--<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>-->
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<% if params.has_key?(:note_err) %>
+  <%= 'Note not created!' %>
+    <% params[:note_err] = nil %>
+<% end %>
+
+<%= form_for(:note, url: {:controller => 'note', :action => 'create'}) do |f| %>
+    Title: <%= f.text_field :name %>
+    Content: <%= f.text_area :content, size: '60x12' %>
+    <%= f.submit 'Create' %>
+<% end %>
