@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'main/perma'
+
   get 'note/view'
 
   devise_for :users
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   post 'note/create'
   get 'note/create'
 
+  post 'note/edit'
   get 'note/edit'
 
   get 'note/remove'

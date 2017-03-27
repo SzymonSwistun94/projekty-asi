@@ -1,2 +1,13 @@
-<h1>Note#edit</h1>
-<p>Find me in app/views/note/edit.html.erb</p>
+<!--<form action="/note/edit">-->
+<!--<input type="hidden" name="Id" value='<% raw @id %>'/>-->
+<!--Title: <input type="text" name="title"/>-->
+<!--Content: <input type="">-->
+<!--</form>-->
+<%= form_for :note, :url => {:controller => 'note', :action => 'edit'} do |f| %>
+    <input type="hidden" name="Id" value="<%= raw @id %>"/>
+    Title: <%= f.text_field :title, :value => @note.title %>
+    Content: <%= f.text_area :content, size: '60x12', :value => @note.content %>
+    <%= f.submit 'Create private', :name => 'commit_0' %>
+    <%= f.submit 'Create unlisted', :name => 'commit_1' %>
+    <%= f.submit 'Create public', :name => 'commit_2' %>
+<% end %>

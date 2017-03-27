@@ -8,14 +8,42 @@
       <tr>
         <td style="border: 1px solid">Title</td>
         <td style="border: 1px solid">Content</td>
+        <td style="border: 1px solid">Edit</td>
+        <td style="border: 1px solid">Remove</td>
+        <td style="border: 1px solid">Permalink</td>
       </tr>
       <% @notes.each do |n| %>
           <tr style="border: 1px solid">
-            <td style="border: 1px solid">
+            <td style="border: 1px solid; width: 15%">
               <%= n.title %>
             </td>
             <td style="border: 1px solid">
               <%= n.content %>
+            </td>
+            <td style="border: 1px solid; width: 5%">
+              <% if user_signed_in? %>
+                  <% if n.user_id == current_user.id or current_user.id == 1 %>
+                      <%= raw "<form action='/note/edit'>" %>
+                      <%= raw "<input type='submit' name='Edit' value='Edit'/>" %>
+                      <%= raw "<input type='hidden' name='Id' value='#{n.id}'/>" %>
+                      <%= raw '</form>' %>
+                  <% end %>
+              <% end %>
+            </td>
+            <td style="border: 1px solid; width: 5%">
+              <% if user_signed_in? %>
+                  <% if n.user_id == current_user.id or current_user.id == 1 %>
+                      <%= raw "<form action='/note/remove'>" %>
+                      <%= raw "<input type='submit' name='Remove' value='Remove'/>" %>
+                      <%= raw "<input type='hidden' name='Id' value='#{n.id}'/>" %>
+                      <%= raw '</form>' %>
+                  <% end %>
+              <% end %>
+            </td>
+            <td style="border: 1px solid; width: 5%">
+              <% if n.visibility == 2 or (user_signed_in? and n.visibility == 1 and (current_user.id == 1 or n.user == current_user)) %>
+                  <%= link_to 'Permalink', controller: :main, action: :perma, :nId => n.id %>
+              <% end %>
             </td>
           </tr>
       <% end %>

@@ -1,10 +1,23 @@
 <% if params.has_key?(:note_err) %>
-  <%= 'Note not created!' %>
+    <%= 'Note not created!' %>
     <% params[:note_err] = nil %>
 <% end %>
 
-<%= form_for(:note, url: {:controller => 'note', :action => 'create'}) do |f| %>
+<%= form_for(:note, url: {:controller => 'note', :action => 'create'}, :html => {:id => 'create'}) do |f| %>
     Title: <%= f.text_field :name %>
     Content: <%= f.text_area :content, size: '60x12' %>
-    <%= f.submit 'Create' %>
-<% end %>
+    <!--Visibility:<br/>
+       <%= f.radio_button :visibility, 'private', :class => 'radio' %>Private<br/>
+      <input class="radio_button" type="radio" value="private" name="note[visibility]" id="note_visibility_private">Private</input><br/>&ndash;&gt;
+      <%= f.radio_button :visibility, 'unlisted', :class => 'radio' %>Unlisted<br/>
+      <%= f.radio_button :visibility, 'public', :checked => true, :class => 'radio' %>Public<br/>-->
+
+    <%= f.submit 'Create private', :name => 'commit_0' %>
+    <%= f.submit 'Create unlisted', :name => 'commit_1' %>
+    <%= f.submit 'Create public', :name => 'commit_2' %>
+<!--<% end %>-->
+<!--<select name="note[visibility]" form="create">-->
+  <!--<option value="0">Private</option>-->
+  <!--<option value="1">Unlisted</option>-->
+  <!--<option value="2">Public</option>-->
+<!--</select>-->

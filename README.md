@@ -1,24 +1,12 @@
-# README
+### Szymon Świstun
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- [link do wdrożonej na zewnętrznym serwerze aplikacji](https://proj1-ror.herokuapp.com/)
 
-Things you may want to cover:
+* ruby 2.3.3
+* rails 5.0.2
+* Postgresql
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Strona służy do przechowywania i udostępniania notatek.
+Gemy:
+* materialize-sass - wygląd,
+* devise - logowanie.
