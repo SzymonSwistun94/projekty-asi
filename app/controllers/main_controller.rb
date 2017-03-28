@@ -6,7 +6,10 @@ class MainController < ApplicationController
   def list
 
     if user_signed_in?
-      @notes = Note.where( 'user_id = 1 or visibility = 2 or user_id = ?', current_user.id)
+      # puts "#{current_user.email} signed in - id: #{current_user.id}"
+      @user = current_user
+
+      @notes = if @user.id == 1 then Note.all else Note.where( 'visibility = 2 or user_id = ?', current_user.id) end
     else
       @notes = Note.where(visibility: 2)
     end
