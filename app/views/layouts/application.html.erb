@@ -19,7 +19,7 @@
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Notes</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse">
-      <i class="material-icons"><b style="font-size: 120%">|||</b></i>
+      <i class="material-icons">|||</i>
     </a>
     <ul class="right hide-on-med-and-down">
       <li><%= link_to('List', '/main/list') %></li>
@@ -27,10 +27,10 @@
           <li><%= link_to('Create', '/note/create') %></li>
           <li>Logged in as <strong><%= current_user.email %></strong></li>
           <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |</li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
       <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |</li>
-          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'  %> |</li>
+          <li><%= link_to 'Login', new_user_session_path, :class => 'navbar-link'  %></li>
       <% end %>
     </ul>
     <ul class="side-nav" id="mobile-demo">
@@ -39,10 +39,10 @@
           <li><%= link_to('Create', '/note/create') %></li>
           <li>Logged in as <strong><%= current_user.email %></strong></li>
           <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |</li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
       <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |</li>
-          <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path, :class => 'navbar-link'  %> |</li>
+          <li><%= link_to 'Login', new_user_session_path, :class => 'navbar-link'  %></li>
       <% end %>
     </ul>
   </div>
