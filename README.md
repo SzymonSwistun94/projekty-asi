@@ -10,3 +10,10 @@ Strona służy do przechowywania i udostępniania notatek.
 Gemy:
 * materialize-sass - wygląd,
 * devise - logowanie.
+
+Problemy:
+* na Heroku nie działa rozwijane menu używane na urządzeniach
+z średnim lub małym ekranem. Lokalnie i na Cloud9 problem 
+nie występuje. Porównanie kodów źródłowych wynikowych stron
+sugeruje, że problem wynika z faktu, że Heroku nie linkuje wszystkich
+potrzebnych skryptów js.
