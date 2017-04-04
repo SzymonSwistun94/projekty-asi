@@ -6,7 +6,8 @@
 <%= form_for :note, :url => {:controller => 'note', :action => 'edit'} do |f| %>
     <input type="hidden" name="Id" value="<%= raw @id %>"/>
     Title: <%= f.text_field :title, :value => @note.title %>
-    Content: <%= f.text_area :content, size: '60x12', :value => @note.content %>
+    Description: <%= f.text_field :desc %>
+    Content: <%= f.text_area :content, size: '60x20', style: 'height: 40%', :value => @note.content %>
     <%= f.submit 'Create private', :name => 'commit_0' %>
     <%= f.submit 'Create unlisted', :name => 'commit_1' %>
     <%= f.submit 'Create public', :name => 'commit_2' %>

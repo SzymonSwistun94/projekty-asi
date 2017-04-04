@@ -5,7 +5,8 @@
 
 <%= form_for(:note, url: {:controller => 'note', :action => 'create'}, :html => {:id => 'create'}) do |f| %>
     Title: <%= f.text_field :name %>
-    Content: <%= f.text_area :content, size: '60x12' %>
+    Description: <%= f.text_field :desc %>
+    Content: <%= f.text_area :content, size: '60x20', style: 'height: 40%' %>
     <!--Visibility:<br/>
        <%= f.radio_button :visibility, 'private', :class => 'radio' %>Private<br/>
       <input class="radio_button" type="radio" value="private" name="note[visibility]" id="note_visibility_private">Private</input><br/>&ndash;&gt;

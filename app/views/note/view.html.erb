@@ -1,10 +1,14 @@
 <table style="border: solid 1px">
   <tr style="border: solid 1px">
-    <td style="border: solid 1px">
-      <%= @note.name  %>
-    </td>
-    <td style="border: solid 1px">
-      <%= @note.content  %>
-    </td>
+    <td style="border: solid 1px">Title</td>
+    <td style="border: solid 1px"><%= @note.title  %></td>
+  <tr style="border: solid 1px">
+  </tr>
+      <td style="border: solid 1px">Description</td>
+  <td style="border: solid 1px"><%= @note.desc  %></td>
+  <tr style="border: solid 1px">
+  </tr>
+  <td style="border: solid 1px">Content</td>
+  <td style="border: solid 1px"><%= raw @content  %></td>
   </tr>
 </table>

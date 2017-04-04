@@ -6,7 +6,7 @@ class NoteController < ApplicationController
       # visibility = if params[:note][:public] then 2 elsif params[:note][:perma] then 1 else 0 end
       puts params
       visibility = if params.has_key? 'commit_0' then 0 elsif params.has_key? 'commit_1' then 1 else 2 end
-      note = Note.new(:title => params[:note][:name], :content => params[:note][:content], :permalink => SecureRandom.hex(8), :visibility => visibility)
+      note = Note.new(:title => params[:note][:name], :desc => params['note']['desc'], :content => params[:note][:content], :permalink => SecureRandom.hex(8), :visibility => visibility)
       note.user = current_user
       if note.save
         redirect_to('/main/list')
@@ -29,6 +29,7 @@ class NoteController < ApplicationController
     if params.has_key? 'commit_0' or params.has_key? 'commit_1' or params.has_key? 'commit_2'
       puts params
       @note.title = params['note']['title']
+      @note.desc = params['note']['desc']
       @note.content = params['note']['content']
       @note.visibility = if params.has_key? 'commit_0' then 0 elsif params.has_key? 'commit_1' then 1 else 2 end
       @note.save
@@ -53,10 +54,17 @@ class NoteController < ApplicationController
   end
 
   def view
-    redirect_to('main/list') unless params.has_key?[:permalink]
+    redirect_to controller: :main, view: :list unless params.has_key? :permalink
+    puts "permalink - #{params[:permalink]}"
     @note = Note.find_by_permalink(params[:permalink])
-    if @note.nil? or (@note.author != current_user and @note.visibility == 0)
-      redirect_to('main/list')
+    puts "note - #{@note}"
+    if @note.nil? or @note.accessible?
+      redirect_to controller: :main, view: :list
+    else
+      # options = {:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode}
+      options = {}
+      markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+      @content = markdown.render(@note.content)
     end
   end
 end

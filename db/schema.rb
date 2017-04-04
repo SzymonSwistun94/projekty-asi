@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170319233655) do
   create_table "notes", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
+    t.string   "desc"
     t.text     "content"
     t.string   "permalink"
     t.integer  "visibility",    limit: 2, default: 2

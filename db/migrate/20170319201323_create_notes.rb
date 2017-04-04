@@ -3,6 +3,7 @@ class CreateNotes < ActiveRecord::Migration[5.0]
     create_table :notes do |t|
       t.integer 'user_id'
       t.string 'title'
+      t.string 'desc'
       t.text 'content'
       t.string 'permalink', :unique => true
       t.integer 'visibility', :limit => 2, :default => 2

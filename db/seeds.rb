@@ -12,10 +12,33 @@ admin = User.create! :email => 'admin@admin.com', :password => 'admin123', :pass
 test = User.create! :email => 'test@test.com', :password => 'test123', :password_confirmation => 'test123'
 test2 = User.create! :email => 'test2@test.com', :password => 'test123', :password_confirmation => 'test123'
 
-test.notes << Note.create(:title => 'public', :content => 'test@test.com', :permalink => SecureRandom.hex(8), :visibility => 2)
-test.notes << Note.create(:title => 'unlisted', :content => 'test@test.com', :permalink => SecureRandom.hex(8), :visibility => 1)
-test.notes << Note.create(:title => 'private', :content => 'test@test.com', :permalink => SecureRandom.hex(8), :visibility => 0)
+test.notes << Note.create(:title => 'public', :desc => 'test@test.com', :content => "An h1 header
+============
 
-test2.notes << Note.create(:title => 'public', :content => 'test2@test.com', :permalink => SecureRandom.hex(8), :visibility => 2)
-test2.notes << Note.create(:title => 'unlisted', :content => 'test2@test.com', :permalink => SecureRandom.hex(8), :visibility => 1)
-test2.notes << Note.create(:title => 'private', :content => 'test2@test.com', :permalink => SecureRandom.hex(8), :visibility => 0)
+Paragraphs are separated by a blank line.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., 'it's all
+in chapters 12--14'). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺", :permalink => SecureRandom.hex(8), :visibility => 2)
+test.notes << Note.create(:title => 'unlisted', :desc => 'test@test.com', :content => ' ', :permalink => SecureRandom.hex(8), :visibility => 1)
+test.notes << Note.create(:title => 'private', :desc => 'test@test.com', :content => ' ', :permalink => SecureRandom.hex(8), :visibility => 0)
+
+test2.notes << Note.create(:title => 'public', :desc => 'test2@test.com', :content => ' ', :permalink => SecureRandom.hex(8), :visibility => 2)
+test2.notes << Note.create(:title => 'unlisted', :desc => 'test2@test.com', :content => ' ', :permalink => SecureRandom.hex(8), :visibility => 1)
+test2.notes << Note.create(:title => 'private', :desc => 'test2@test.com', :content => ' ', :permalink => SecureRandom.hex(8), :visibility => 0)

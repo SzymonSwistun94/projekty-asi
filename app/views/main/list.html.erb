@@ -7,7 +7,7 @@
     <table class="table" style="border: 1px solid">
       <tr>
         <td style="border: 1px solid">Title</td>
-        <td style="border: 1px solid">Content</td>
+        <td style="border: 1px solid">Description</td>
         <% if user_signed_in? %>
             <%= raw "<td style='border: 1px solid'>Edit</td>" %>
             <%= raw "<td style='border: 1px solid'>Remove</td>" %>
@@ -20,7 +20,7 @@
               <%= n.title %>
             </td>
             <td style="border: 1px solid">
-              <%= n.content %>
+              <%= n.desc %>
             </td>
             <% if user_signed_in? %>
                 <%= raw "<td style='border: 1px solid; width: 5%'>" %>
@@ -41,8 +41,8 @@
                 <%= raw '</td>' %>
             <% end %>
             <td style="border: 1px solid; width: 5%">
-              <% if n.visibility == 2 or (user_signed_in? and n.visibility == 1 and (current_user.id == 1 or n.user == current_user)) %>
-                  <%= link_to 'Permalink', controller: :main, action: :perma, :nId => n.id %>
+              <% if n.visibility == 2 or (user_signed_in? and (current_user.id == 1 or n.user == current_user)) %>
+                  <%= link_to 'Permalink', controller: :note, action: :view, :permalink => n.permalink %>
               <% end %>
             </td>
           </tr>

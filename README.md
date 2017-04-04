@@ -9,7 +9,8 @@
 Strona służy do przechowywania i udostępniania notatek.
 Gemy:
 * materialize-sass - wygląd,
-* devise - logowanie.
+* devise - logowanie,
+* redcarpet - parser Markdown.
 
 Problemy:
 * na Heroku nie działa rozwijane menu używane na urządzeniach
