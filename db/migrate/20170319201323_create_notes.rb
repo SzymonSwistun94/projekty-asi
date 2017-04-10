@@ -4,7 +4,7 @@ class CreateNotes < ActiveRecord::Migration[5.0]
       t.integer 'user_id'
       t.string 'title'
       t.string 'desc'
-      t.text 'content'
+      t.text 'content', :null => false, :default => ' '
       t.string 'permalink', :unique => true
       t.integer 'visibility', :limit => 2, :default => 2
       t.boolean 'require_login', :default => true

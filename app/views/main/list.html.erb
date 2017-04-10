@@ -25,7 +25,7 @@
             <% if user_signed_in? %>
                 <%= raw "<td style='border: 1px solid; width: 5%'>" %>
                 <% if n.user_id == current_user.id or current_user.id == 1 %>
-                    <%= raw "<form action='/note/edit'>" %>
+                    <%= raw "<form action='/edit'>" %>
                     <%= raw "<input type='submit' name='Edit' value='Edit'/>" %>
                     <%= raw "<input type='hidden' name='Id' value='#{n.id}'/>" %>
                     <%= raw '</form>' %>
@@ -33,7 +33,7 @@
                 <%= raw '</td>' %>
                 <%= raw "<td style='border: 1px solid; width: 5%'>" %>
                 <% if n.user_id == current_user.id or current_user.id == 1 %>
-                    <%= raw "<form action='/note/remove'>" %>
+                    <%= raw "<form action='/remove'>" %>
                     <%= raw "<input type='submit' name='Remove' value='Remove'/>" %>
                     <%= raw "<input type='hidden' name='Id' value='#{n.id}'/>" %>
                     <%= raw '</form>' %>

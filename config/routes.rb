@@ -1,25 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'main/perma'
-
-  get 'note/view'
+  get 'view', to: 'note#view'
 
   devise_for :users
   root to: 'main#index'
 
-  post 'note/create'
-  get 'note/create'
+  post 'create', to: 'note#create'
+  get 'create', to: 'note#create'
 
-  post 'note/edit'
-  get 'note/edit'
+  post 'edit', to: 'note#edit'
+  get 'edit', to: 'note#edit'
 
-  get 'note/remove'
+  get 'remove', to: 'note#remove'
 
-  get 'main/index'
-
-  get 'main/list'
-
-  get ':controller(/:action(/:id))'
+  get 'list', to: 'main#list'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

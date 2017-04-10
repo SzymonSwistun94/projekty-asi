@@ -55,9 +55,7 @@ class NoteController < ApplicationController
 
   def view
     redirect_to controller: :main, view: :list unless params.has_key? :permalink
-    puts "permalink - #{params[:permalink]}"
     @note = Note.find_by_permalink(params[:permalink])
-    puts "note - #{@note}"
     if @note.nil? or @note.accessible?
       redirect_to controller: :main, view: :list
     else
