@@ -48,7 +48,7 @@ class NoteController < ApplicationController
       end
       redirect_to(controller: :main, action: :list)
     else
-      render('note/remove')
+      render('/note/remove')
     end
 
   end
