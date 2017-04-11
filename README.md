@@ -22,6 +22,5 @@ Gemy:
 * clipboard-rails - kopiowanie tekstu do schowka.
 
 Problemy:
-* na Heroku nie działa rozwijane menu używane na urządzeniach
-z średnim lub małym ekranem. Lokalnie i na Cloud9 problem 
-nie występuje. 
+* wysuwane menu i kopiowanie do schowka nie działają 
+w trybie produkcyjnym.
