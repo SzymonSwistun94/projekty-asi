@@ -17,7 +17,8 @@ jednoznacznie prowadzącego do notatki. Ponadto możliwe jest
 Gemy:
 * materialize-sass - wygląd,
 * devise - logowanie,
-* redcarpet - parser Markdown.
+* redcarpet - parser Markdown,
+* clipboard-rails - kopiowanie tekstu do schowka.
 
 Problemy:
 * na Heroku nie działa rozwijane menu używane na urządzeniach
