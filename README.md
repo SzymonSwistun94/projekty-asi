@@ -7,6 +7,13 @@
 * Postgresql
 
 Strona służy do przechowywania i udostępniania notatek.
+Wkład własny:
+* permalinki - funkcja pozwalająca na uzyskanie linku 
+jednoznacznie prowadzącego do notatki. Ponadto możliwe jest
+ ustalenie, czy przy pomocy linku dostęp może uzyskać ktoś 
+ poza autorem oraz czy będzie się ona wyświetlać na liście
+ dla osób poza nim.
+
 Gemy:
 * materialize-sass - wygląd,
 * devise - logowanie,
