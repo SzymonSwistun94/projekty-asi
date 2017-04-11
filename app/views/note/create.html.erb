@@ -3,7 +3,7 @@
     <% params[:note_err] = nil %>
 <% end %>
 
-<%= form_for(:note, url: {:controller => 'note', :action => 'create'}, :html => {:id => 'create'}) do |f| %>
+<%= form_for(:note, url: '/create', :html => {:id => 'create'}) do |f| %>
     Title: <%= f.text_field :name %>
     Description: <%= f.text_field :desc %>
     Content: <%= f.text_area :content, size: '60x20', style: 'height: 40%' %>

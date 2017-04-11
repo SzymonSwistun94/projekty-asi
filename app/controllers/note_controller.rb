@@ -46,7 +46,7 @@ class NoteController < ApplicationController
         note = Note.find_by id: @id
         note.destroy unless note.nil?
       end
-      redirect_to(controller: :main, action: :list)
+      redirect_to('/list')
     else
       render('/note/remove')
     end

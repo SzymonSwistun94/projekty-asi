@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'remove', to: 'note#remove'
 
   get 'list', to: 'main#list'
+  get 'main/list', to: 'main#list'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
