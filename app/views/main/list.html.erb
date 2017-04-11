@@ -12,6 +12,7 @@
             <%= raw "<td style='border: 1px solid'>Edit</td>" %>
             <%= raw "<td style='border: 1px solid'>Remove</td>" %>
         <% end %>
+        <td style="border: 1px solid"></td>
         <td style="border: 1px solid">Permalink</td>
       </tr>
       <% @notes.each do |n| %>
@@ -42,7 +43,13 @@
             <% end %>
             <td style="border: 1px solid; width: 5%">
               <% if n.visibility == 2 or (user_signed_in? and (current_user.id == 1 or n.user == current_user)) %>
-                  <%= link_to 'Permalink', controller: :note, action: :view, :permalink => n.permalink %>
+                  <%= raw "<button class='clipboard-btn' data-clipboard-action='copy' data-clipboard-text=#{request.base_url}/view?permalink=#{n.permalink}>" %>
+                  <%= raw   'Copy to clipboard' %>
+                  <%= raw '</button>' %>
+              <% end %>
+            <td style="border: 1px solid; width: 5%">
+              <% if n.visibility == 2 or (user_signed_in? and (current_user.id == 1 or n.user == current_user)) %>
+                  <%= link_to 'Permalink', {controller: :note, action: :view, :permalink => n.permalink} %>
               <% end %>
             </td>
           </tr>
