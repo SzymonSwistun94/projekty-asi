@@ -7,6 +7,7 @@
 * Postgresql
 
 Strona służy do przechowywania i udostępniania notatek.
+
 Wkład własny:
 * permalinki - funkcja pozwalająca na uzyskanie linku 
 jednoznacznie prowadzącego do notatki. Ponadto możliwe jest
